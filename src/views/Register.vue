@@ -12,11 +12,12 @@
                 <input type="text" class="form-control" placeholder="Name.." />
               </div>
               <div class="form-group">
-                <label for="email">Email address</label>
+                <label for="email">Username</label>
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  placeholder="Email.."
+                  placeholder="Username.."
+                  v-model="akun.username"
                 />
               </div>
               <div class="form-group">
@@ -25,6 +26,7 @@
                   type="password"
                   class="form-control"
                   placeholder="Password.."
+                  v-model="akun.password"
                 />
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -37,11 +39,27 @@
 </template>
 
 <script>
+import axios from "axios";
 import Navbar from "../components/Navbar.vue";
 export default {
   name: "Register",
   components: {
     Navbar,
+  },
+  data() {
+    return {
+      akun: {
+        username: null,
+        password: null,
+      },
+    };
+  },
+  methods: {
+    addUser() {
+      if (!this.username && !this.password) {
+        axios.post("http://localhost:3000/users", this.akun);
+      }
+    },
   },
 };
 </script>

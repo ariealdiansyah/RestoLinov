@@ -20,7 +20,8 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col v-for="item in data" :key="item.id" class="mt-4">
+        <div v-for="item in data" :key="item.id">
+          <b-col class="mt-4">
           <div class="card" style="width: 21.5rem">
             <img
               class="card-img-top"
@@ -35,6 +36,8 @@
             </div>
           </div>
         </b-col>
+        </div>
+        
       </b-row>
     </b-container>
   </div>

@@ -16,7 +16,6 @@
                   v-model="username"
                 />
               </div>
-              {{ username }}
               <div class="form-group">
                 <label for="password">Password</label>
                 <input
@@ -26,7 +25,6 @@
                   v-model="password"
                 />
               </div>
-              {{ password }}
               <button @click="checkLogin()" class="btn btn-primary">
                 Submit
               </button>
